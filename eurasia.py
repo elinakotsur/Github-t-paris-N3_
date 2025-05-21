@@ -53,7 +53,8 @@ class MurderStatsManager:
         return self.data[continent][country][city]["murders"]
     
     def remove_city(self, continent, country, city):
-        pass
+        delete = self.data[continent][country].pop(city)
+        print("deleted city", delete)
     
     
     
@@ -63,3 +64,6 @@ manager.add_data( "Europe","Estonia","Tallinn",3)
 
 print(manager.get_stats())
 print(manager.get_city_stats("Europe", "Estonia","Tallinn"))
+manager.remove_city("Europe", "Estonia","Tallinn")
+print(manager.get_city_stats("Afrika", "Algeria","Kairo"))
+
