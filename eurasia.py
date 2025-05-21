@@ -26,13 +26,14 @@ class MurderStatsManager:
         
     
     def add_data(self, continent, country, city, count):
-        keys = [continent, country, city]
+        keys = self.data[continent][ country][city]
         current =self.data
         
         for key in keys:
-            if key not in current:
-                current[key]={}
-                current=current[key]
+            if "murders" not in current:
+                current["murders"]=[]
+                current["murders"].append(count)
+                
         
         
     
@@ -46,5 +47,5 @@ class MurderStatsManager:
     
 
 manager=MurderStatsManager()
-
+manager.add_data( "Europe","Estonia","Tallinn",4)
 print(manager.get_stats())
