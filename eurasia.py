@@ -21,8 +21,16 @@ class MurderStatsManager:
                 "murders":[8]
                 }
             }
+        },
+    "Afrika":{
+        "Algeria":{
+            "Kairo":{
+                "murders":[20]
+                }
+            }
         }
     }
+    
         
     
     def add_data(self, continent, country, city, count):
@@ -41,11 +49,17 @@ class MurderStatsManager:
         return self.data
         
     
+    def get_city_stats(self, continent, country, city):
+        return self.data[continent][country][city]["murders"]
     
+    def remove_city(self, continent, country, city):
+        pass
     
     
     
 
 manager=MurderStatsManager()
-manager.add_data( "Europe","Estonia","Tallinn",4)
+manager.add_data( "Europe","Estonia","Tallinn",3)
+
 print(manager.get_stats())
+print(manager.get_city_stats("Europe", "Estonia","Tallinn"))
